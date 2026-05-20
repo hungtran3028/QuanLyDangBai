@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Content Studio Sao Việt</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand-mark">SV</div>
+      <div>
+        <p class="eyebrow">Content Studio</p>
+        <h1>Tin Học Sao Việt Biên Hòa</h1>
+      </div>
+      <nav aria-label="Chức năng">
+        <a href="#generator">Tạo nội dung</a>
+        <a href="#calendar">Lịch 30 ngày</a>
+        <a href="#image">Ý tưởng hình ảnh</a>
+        <a href="#profile">Hồ sơ thương hiệu</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="topbar" id="profile">
+        <div>
+          <p class="eyebrow">Hồ sơ chính thức</p>
+          <h2>91 Đoàn Văn Cự, Tam Hiệp, Thành phố Đồng Nai</h2>
+        </div>
+        <a class="phone" href="tel:0931144858">093 11 44 858</a>
+      </section>
+
+      <section class="workspace" id="generator">
+        <div class="panel form-panel">
+          <div class="section-head">
+            <p class="eyebrow">Tạo bài viết</p>
+            <h2>Nhập mục tiêu nội dung</h2>
+          </div>
+
+          <label>
+            Khóa học
+            <select id="course">
+              <option>Excel cho người đi làm</option>
+              <option>Tin học văn phòng</option>
+              <option>MOS Word Excel PowerPoint</option>
+              <option>AutoCAD 2D 3D</option>
+              <option>Canva và thiết kế cơ bản</option>
+              <option>AI ứng dụng văn phòng</option>
+            </select>
+          </label>
+
+          <label>
+            Đối tượng
+            <select id="audience">
+              <option>người đi làm</option>
+              <option>sinh viên</option>
+              <option>học sinh</option>
+              <option>doanh nghiệp</option>
+              <option>người mất gốc tin học</option>
+            </select>
+          </label>
+
+          <label>
+            Mục tiêu
+            <select id="goal">
+              <option>tuyển sinh</option>
+              <option>tăng nhận diện</option>
+              <option>chia sẻ kiến thức</option>
+              <option>kêu gọi tư vấn</option>
+            </select>
+          </label>
+
+          <label>
+            Kênh đăng
+            <select id="channel">
+              <option>Facebook</option>
+              <option>Zalo</option>
+              <option>Website SEO</option>
+              <option>TikTok script</option>
+            </select>
+          </label>
+
+          <button id="generateBtn">Tạo nội dung</button>
+        </div>
+
+        <div class="panel output-panel">
+          <div class="section-head">
+            <p class="eyebrow">Bản nháp</p>
+            <h2 id="outputTitle">Sẵn sàng tạo nội dung</h2>
+          </div>
+          <div id="output" class="output">
+            Chọn khóa học, đối tượng, mục tiêu rồi bấm tạo nội dung.
+          </div>
+        </div>
+      </section>
+
+      <section class="calendar-section" id="calendar">
+        <div class="section-head">
+          <p class="eyebrow">Lịch nội dung</p>
+          <h2>30 ngày gợi ý đăng bài</h2>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+
+      <section class="image-section" id="image">
+        <div class="section-head">
+          <p class="eyebrow">Hình ảnh</p>
+          <h2>Prompt tạo banner đi kèm</h2>
+        </div>
+        <div class="image-prompt" id="imagePrompt"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

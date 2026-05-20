@@ -1,0 +1,23 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Dependency/build folders for future app versions
+node_modules/
+dist/
+build/
+.next/
+.vite/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
