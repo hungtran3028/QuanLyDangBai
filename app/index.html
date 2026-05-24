@@ -34,8 +34,20 @@
         <div class="panel form-panel">
           <div class="section-head">
             <p class="eyebrow">Tạo bài viết</p>
-            <h2>Nhập mục tiêu nội dung</h2>
+            <h2>Chọn hướng nội dung</h2>
           </div>
+
+          <label>
+            Dạng bài đăng
+            <select id="postType">
+              <option value="enrollment">Tuyển sinh khóa học</option>
+              <option value="tips">Mẹo kiến thức ngắn</option>
+              <option value="story">Câu chuyện học viên</option>
+              <option value="local">Bài địa phương/SEO</option>
+              <option value="promotion">Ưu đãi - khai giảng</option>
+              <option value="video">Kịch bản video ngắn</option>
+            </select>
+          </label>
 
           <label>
             Khóa học
@@ -46,6 +58,8 @@
               <option>AutoCAD 2D 3D</option>
               <option>Canva và thiết kế cơ bản</option>
               <option>AI ứng dụng văn phòng</option>
+              <option>Tin học trẻ em</option>
+              <option>Photoshop - Illustrator</option>
             </select>
           </label>
 
@@ -55,6 +69,7 @@
               <option>người đi làm</option>
               <option>sinh viên</option>
               <option>học sinh</option>
+              <option>phụ huynh</option>
               <option>doanh nghiệp</option>
               <option>người mất gốc tin học</option>
             </select>
@@ -67,6 +82,7 @@
               <option>tăng nhận diện</option>
               <option>chia sẻ kiến thức</option>
               <option>kêu gọi tư vấn</option>
+              <option>thu lead inbox</option>
             </select>
           </label>
 
@@ -80,16 +96,22 @@
             </select>
           </label>
 
-          <button id="generateBtn">Tạo nội dung</button>
+          <div class="actions">
+            <button id="generateBtn" type="button">Tạo nội dung</button>
+            <button id="variantBtn" class="secondary-button" type="button">Đổi biến thể</button>
+          </div>
         </div>
 
         <div class="panel output-panel">
-          <div class="section-head">
-            <p class="eyebrow">Bản nháp</p>
-            <h2 id="outputTitle">Sẵn sàng tạo nội dung</h2>
+          <div class="section-head output-head">
+            <div>
+              <p class="eyebrow">Bản nháp</p>
+              <h2 id="outputTitle">Sẵn sàng tạo nội dung</h2>
+            </div>
+            <button id="copyBtn" class="icon-button" type="button" title="Sao chép nội dung">Copy</button>
           </div>
           <div id="output" class="output">
-            Chọn khóa học, đối tượng, mục tiêu rồi bấm tạo nội dung.
+            Chọn dạng bài, khóa học, đối tượng rồi bấm tạo nội dung.
           </div>
         </div>
       </section>
