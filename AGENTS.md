@@ -21,4 +21,11 @@ This workflow is mandatory for all content-building conversations and tasks in t
 - Also copy the final image into `outputs/images/<slug>.png`; this folder is the image collection archive.
 - Facebook/Zalo posts should use lively, purposeful icons/emoji while staying professional.
 
+## App Runtime Rule
+
+- Always use Tailscale for the running app and Facebook OAuth callback.
+- Keep `APP_BASE_URL` set to `https://hungtran.tail07d810.ts.net`.
+- When starting or troubleshooting the app, ensure Tailscale Serve is active with `tailscale serve --bg --yes 3000` so the Tailscale URL proxies to local port `3000`.
+- Use `https://hungtran.tail07d810.ts.net/api/facebook/callback` as the Meta OAuth redirect URI, not a localhost callback.
+
 If any instruction here conflicts with the detailed workflow, follow `docs/content-production-workflow.md`.

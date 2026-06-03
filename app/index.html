@@ -14,125 +14,129 @@
         <h1>Tin Học Sao Việt Biên Hòa</h1>
       </div>
       <nav aria-label="Chức năng">
-        <a href="#generator">Tạo nội dung</a>
-        <a href="#calendar">Lịch 30 ngày</a>
-        <a href="#image">Ý tưởng hình ảnh</a>
-        <a href="#profile">Hồ sơ thương hiệu</a>
+        <a href="#queue">Hàng chờ đăng</a>
+        <a href="#detail">Chi tiết bài</a>
+        <a href="#facebook">Facebook Page</a>
       </nav>
     </aside>
 
     <main>
-      <section class="topbar" id="profile">
+      <section class="topbar">
         <div>
-          <p class="eyebrow">Hồ sơ chính thức</p>
-          <h2>91 Đoàn Văn Cự, Tam Hiệp, Thành phố Đồng Nai</h2>
+          <p class="eyebrow">Bảng điều khiển</p>
+          <h2>Đọc bài đã lưu và đăng lên Facebook Page</h2>
         </div>
-        <a class="phone" href="tel:0931144858">093 11 44 858</a>
+        <div class="top-actions">
+          <a class="phone" href="tel:0931144858">093 11 44 858</a>
+          <button id="refreshBtn" class="icon-button" type="button" title="Tải lại danh sách">Tải lại</button>
+        </div>
       </section>
 
-      <section class="workspace" id="generator">
-        <div class="panel form-panel">
+      <section class="facebook-strip" id="facebook">
+        <div>
+          <p class="eyebrow">Facebook</p>
+          <h2 id="facebookTitle">Đang kiểm tra kết nối</h2>
+          <p id="facebookMeta">Chưa có dữ liệu.</p>
+        </div>
+        <div class="facebook-actions">
+          <label class="page-select-label">
+            Fanpage đăng bài
+            <select id="pageSelect" disabled>
+              <option>Chưa có fanpage</option>
+            </select>
+          </label>
+          <a id="connectFacebook" class="connect-button" href="/api/facebook/connect">Kết nối Page</a>
+        </div>
+      </section>
+
+      <section class="workspace" id="queue">
+        <div class="panel list-panel">
           <div class="section-head">
-            <p class="eyebrow">Tạo bài viết</p>
-            <h2>Chọn hướng nội dung</h2>
+            <p class="eyebrow">Bài viết</p>
+            <h2>Trạng thái đăng bài</h2>
           </div>
 
-          <label>
-            Dạng bài đăng
-            <select id="postType">
-              <option value="enrollment">Tuyển sinh khóa học</option>
-              <option value="tips">Mẹo kiến thức ngắn</option>
-              <option value="story">Câu chuyện học viên</option>
-              <option value="local">Bài địa phương/SEO</option>
-              <option value="promotion">Ưu đãi - khai giảng</option>
-              <option value="video">Kịch bản video ngắn</option>
-            </select>
-          </label>
-
-          <label>
-            Khóa học
-            <select id="course">
-              <option>Excel cho người đi làm</option>
-              <option>Tin học văn phòng</option>
-              <option>MOS Word Excel PowerPoint</option>
-              <option>AutoCAD 2D 3D</option>
-              <option>Canva và thiết kế cơ bản</option>
-              <option>AI ứng dụng văn phòng</option>
-              <option>Tin học trẻ em</option>
-              <option>Photoshop - Illustrator</option>
-            </select>
-          </label>
-
-          <label>
-            Đối tượng
-            <select id="audience">
-              <option>người đi làm</option>
-              <option>sinh viên</option>
-              <option>học sinh</option>
-              <option>phụ huynh</option>
-              <option>doanh nghiệp</option>
-              <option>người mất gốc tin học</option>
-            </select>
-          </label>
-
-          <label>
-            Mục tiêu
-            <select id="goal">
-              <option>tuyển sinh</option>
-              <option>tăng nhận diện</option>
-              <option>chia sẻ kiến thức</option>
-              <option>kêu gọi tư vấn</option>
-              <option>thu lead inbox</option>
-            </select>
-          </label>
-
-          <label>
-            Kênh đăng
-            <select id="channel">
-              <option>Facebook</option>
-              <option>Zalo</option>
-              <option>Website SEO</option>
-              <option>TikTok script</option>
-            </select>
-          </label>
-
-          <div class="actions">
-            <button id="generateBtn" type="button">Tạo nội dung</button>
-            <button id="variantBtn" class="secondary-button" type="button">Đổi biến thể</button>
+          <div class="tabs" role="tablist" aria-label="Lọc trạng thái">
+            <button class="tab active" type="button" data-status="all">Tất cả</button>
+            <button class="tab" type="button" data-status="ready_for_review">Chờ duyệt</button>
+            <button class="tab" type="button" data-status="approved">Đã duyệt</button>
+            <button class="tab" type="button" data-status="scheduled">Hẹn giờ</button>
+            <button class="tab" type="button" data-status="published">Đã đăng</button>
+            <button class="tab" type="button" data-status="failed">Lỗi</button>
           </div>
+
+          <div id="postList" class="post-list"></div>
         </div>
 
-        <div class="panel output-panel">
-          <div class="section-head output-head">
+        <article class="panel detail-panel" id="detail">
+          <div class="section-head detail-head">
             <div>
-              <p class="eyebrow">Bản nháp</p>
-              <h2 id="outputTitle">Sẵn sàng tạo nội dung</h2>
+              <p class="eyebrow" id="detailStatus">Chưa chọn bài</p>
+              <h2 id="detailTitle">Chọn một bài để xem chi tiết</h2>
             </div>
-            <button id="copyBtn" class="icon-button" type="button" title="Sao chép nội dung">Copy</button>
+            <span id="detailSlug" class="slug-pill"></span>
           </div>
-          <div id="output" class="output">
-            Chọn dạng bài, khóa học, đối tượng rồi bấm tạo nội dung.
+
+          <div id="emptyDetail" class="empty-state">
+            Các bài trong `outputs/bai-viet/` sẽ xuất hiện ở danh sách bên trái.
           </div>
-        </div>
-      </section>
 
-      <section class="calendar-section" id="calendar">
-        <div class="section-head">
-          <p class="eyebrow">Lịch nội dung</p>
-          <h2>30 ngày gợi ý đăng bài</h2>
-        </div>
-        <div id="calendarGrid" class="calendar-grid"></div>
-      </section>
+          <div id="postDetail" class="detail-content" hidden>
+            <div class="preview-grid">
+              <figure class="image-preview">
+                <img id="postImage" alt="Ảnh bài viết" />
+              </figure>
+              <div class="checks-block">
+                <h3>Kiểm tra trước khi đăng</h3>
+                <ul id="checksList"></ul>
+              </div>
+            </div>
 
-      <section class="image-section" id="image">
-        <div class="section-head">
-          <p class="eyebrow">Hình ảnh</p>
-          <h2>Prompt tạo banner đi kèm</h2>
-        </div>
-        <div class="image-prompt" id="imagePrompt"></div>
+            <div class="action-grid">
+              <button id="metadataBtn" type="button">Tạo metadata</button>
+              <button id="approveBtn" type="button">Duyệt bài</button>
+              <button id="publishBtn" type="button">Đăng ngay</button>
+              <button id="publishAgainBtn" type="button">Đăng sang Page đang chọn</button>
+              <button id="retryBtn" type="button">Đăng lại</button>
+            </div>
+
+            <form id="scheduleForm" class="schedule-form">
+              <label>
+                Hẹn giờ đăng
+                <input id="scheduleAt" type="datetime-local" />
+              </label>
+              <button type="submit">Lưu lịch</button>
+            </form>
+
+            <div class="meta-row">
+              <span id="scheduledAt"></span>
+              <span id="publishedAt"></span>
+              <span id="facebookPostId"></span>
+            </div>
+
+            <div id="publishError" class="error-box" hidden></div>
+
+            <section id="historySection" class="history-section" hidden>
+              <h3>Lịch sử đăng</h3>
+              <ul id="publishHistory"></ul>
+            </section>
+
+            <section class="caption-section">
+              <div class="section-head output-head">
+                <div>
+                  <p class="eyebrow">Caption</p>
+                  <h2>Nội dung sẽ đăng</h2>
+                </div>
+                <button id="copyBtn" class="icon-button" type="button">Copy</button>
+              </div>
+              <pre id="captionPreview"></pre>
+            </section>
+          </div>
+        </article>
       </section>
     </main>
 
+    <div id="toast" class="toast" hidden></div>
     <script src="./script.js"></script>
   </body>
 </html>
