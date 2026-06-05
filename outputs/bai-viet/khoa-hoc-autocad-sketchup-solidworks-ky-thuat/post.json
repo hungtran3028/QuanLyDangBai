@@ -1,0 +1,99 @@
+{
+  "slug": "khoa-hoc-autocad-sketchup-solidworks-ky-thuat",
+  "title": "Khóa học AutoCAD SketchUp SolidWorks kỹ thuật",
+  "caption": "📐 HỌC AUTOCAD - SKETCHUP - SOLIDWORKS TỪ CƠ BẢN, THỰC HÀNH THEO NHU CẦU KỸ THUẬT\n\nBạn mới bắt đầu học thiết kế kỹ thuật, bản vẽ 2D, mô hình 3D nhưng chưa biết nên bắt đầu từ đâu? Tại Trung Tâm Tin Học Sao Việt Biên Hòa, khóa AutoCAD - SketchUp - SolidWorks được xây dựng theo hướng dễ hiểu, thực hành nhiều, giúp học viên từng bước làm quen phần mềm và ứng dụng vào công việc thực tế.\n\n🎯 Khóa học phù hợp cho:\n- Người mới bắt đầu học vẽ kỹ thuật trên máy tính.\n- Học sinh, sinh viên các ngành kỹ thuật, xây dựng, cơ khí, nội thất.\n- Người đi làm cần bổ sung kỹ năng AutoCAD, SketchUp, SolidWorks.\n- Học viên muốn học bài bản, có người hướng dẫn thao tác trực tiếp.\n\n📌 Học viên sẽ được rèn luyện:\n- Tư duy đọc hiểu và triển khai bản vẽ kỹ thuật.\n- Thao tác vẽ 2D với AutoCAD rõ ràng, đúng quy trình.\n- Dựng mô hình 3D trực quan với SketchUp.\n- Thiết kế chi tiết, lắp ráp cơ bản với SolidWorks.\n- Thực hành trên bài tập sát nhu cầu học tập và công việc.\n\n✨ Điểm nổi bật tại Sao Việt:\n- Học trực tiếp trên máy, giáo viên theo sát từng buổi.\n- Lộ trình phù hợp cho người mới, không cần nền tảng quá cao.\n- Nội dung chú trọng thực hành, dễ áp dụng sau khóa học.\n- Tư vấn lớp học theo mục tiêu: học để đi làm, học để làm đồ án, học để nâng kỹ năng.\n\n👉 Liên hệ Trung Tâm Tin Học Sao Việt Biên Hòa để được tư vấn lộ trình AutoCAD - SketchUp - SolidWorks phù hợp với bạn.\n\n📍 Trung Tâm Tin Học Sao Việt Biên Hòa  \nĐịa chỉ: 91 Đoàn Văn Cự, Tam Hiệp, Thành phố Đồng Nai  \n☎️ Hotline: 093 11 44 858  \nSlogan: Chuyên nghiệp - Tận tâm - Học thành nghề",
+  "image_path": "outputs/bai-viet/khoa-hoc-autocad-sketchup-solidworks-ky-thuat/khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+  "archive_image_path": "outputs/images/khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+  "media": [
+    {
+      "id": "cover",
+      "type": "ai_image",
+      "path": "outputs/bai-viet/khoa-hoc-autocad-sketchup-solidworks-ky-thuat/khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+      "archive_path": "outputs/images/khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+      "album": null,
+      "role": "cover",
+      "order": 1,
+      "title": "khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+      "approved_for_use": true
+    },
+    {
+      "id": "tin-hoc-2aoboqasuedollqhijpmfbn4cmgq6h7h4kdaw0rc1",
+      "type": "student_photo",
+      "path": "assets/student-photos/tin-hoc/2aoboqasuedollqhijpmfbn4cmgq6h7h4kdaw0rc1.jpg",
+      "archive_path": null,
+      "album": "tin-hoc",
+      "role": "slide",
+      "order": 2,
+      "title": "2aoboqasuedollqhijpmfbn4cmgq6h7h4kdaw0rc1.jpg",
+      "approved_for_use": false
+    },
+    {
+      "id": "tin-hoc-2aoboqasuefviypqar7r9uxoygfj1dngm6cugalc6",
+      "type": "student_photo",
+      "path": "assets/student-photos/tin-hoc/2aoboqasuefviypqar7r9uxoygfj1dngm6cugalc6.jpg",
+      "archive_path": null,
+      "album": "tin-hoc",
+      "role": "slide",
+      "order": 3,
+      "title": "2aoboqasuefviypqar7r9uxoygfj1dngm6cugalc6.jpg",
+      "approved_for_use": false
+    }
+  ],
+  "status": "published",
+  "scheduled_at": null,
+  "published_at": "2026-06-03T15:36:29.119Z",
+  "facebook_post_id": "107184998604240_1003084949133744",
+  "facebook_page_id": "107184998604240",
+  "facebook_page_name": "Trung Tâm Tin học Sao Việt Biên Hoà - Đồng Nai",
+  "publish_history": [
+    {
+      "facebook_post_id": "284859368039913_122262919754264949",
+      "facebook_page_id": "284859368039913",
+      "facebook_page_name": "Trung Tâm Đào Tạo Autocad Biên Hoà - Đồng Nai",
+      "published_at": "2026-06-03T15:34:33.228Z",
+      "media": [
+        {
+          "id": "cover",
+          "type": "ai_image",
+          "path": "outputs/bai-viet/khoa-hoc-autocad-sketchup-solidworks-ky-thuat/khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+          "role": "cover",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "facebook_post_id": "107184998604240_1003084949133744",
+      "facebook_page_id": "107184998604240",
+      "facebook_page_name": "Trung Tâm Tin học Sao Việt Biên Hoà - Đồng Nai",
+      "published_at": "2026-06-03T15:36:29.119Z",
+      "media": [
+        {
+          "id": "cover",
+          "type": "ai_image",
+          "path": "outputs/bai-viet/khoa-hoc-autocad-sketchup-solidworks-ky-thuat/khoa-hoc-autocad-sketchup-solidworks-ky-thuat.png",
+          "role": "cover",
+          "order": 1
+        },
+        {
+          "id": "tin-hoc-2aoboqasuedollqhijpmfbn4cmgq6h7h4kdaw0rc1",
+          "type": "student_photo",
+          "path": "assets/student-photos/tin-hoc/2aoboqasuedollqhijpmfbn4cmgq6h7h4kdaw0rc1.jpg",
+          "role": "slide",
+          "order": 2
+        },
+        {
+          "id": "tin-hoc-2aoboqasuefviypqar7r9uxoygfj1dngm6cugalc6",
+          "type": "student_photo",
+          "path": "assets/student-photos/tin-hoc/2aoboqasuefviypqar7r9uxoygfj1dngm6cugalc6.jpg",
+          "role": "slide",
+          "order": 3
+        }
+      ]
+    }
+  ],
+  "publish_error": null,
+  "ignored_checks": [],
+  "ai_drafts": [],
+  "created_at": "2026-06-03T15:33:59.566Z",
+  "updated_at": "2026-06-03T15:36:29.119Z"
+}

@@ -1,0 +1,24 @@
+{
+  "albums": [
+    {
+      "id": "tin-hoc",
+      "title": "Tin học",
+      "description": "Ảnh học viên các lớp tin học văn phòng, MOS, Excel, Word và PowerPoint."
+    },
+    {
+      "id": "ky-thuat",
+      "title": "Kỹ thuật",
+      "description": "Ảnh học viên các lớp AutoCAD, kỹ thuật và thiết kế."
+    },
+    {
+      "id": "ke-toan",
+      "title": "Kế toán",
+      "description": "Ảnh học viên các lớp kế toán tổng hợp và thực hành kế toán."
+    },
+    {
+      "id": "tre-em",
+      "title": "Trẻ em",
+      "description": "Ảnh học viên các lớp tin học trẻ em, lập trình Scratch và tư duy công nghệ."
+    }
+  ]
+}

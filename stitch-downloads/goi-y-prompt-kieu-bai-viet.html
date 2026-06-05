@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Prompt Generator - Sao Việt Content Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-container": "#5fcdbf",
+                        "primary-fixed": "#dde1ff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "tertiary": "#003c36",
+                        "secondary-fixed": "#ffddb8",
+                        "on-primary-fixed-variant": "#173bab",
+                        "on-primary-container": "#a8b8ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#00201d",
+                        "surface": "#f8f9ff",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed": "#89f5e7",
+                        "surface-container-low": "#eff4ff",
+                        "surface-tint": "#3755c3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-surface-variant": "#444653",
+                        "surface-dim": "#cbdbf5",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#b8c4ff",
+                        "surface-variant": "#d3e4fe",
+                        "outline-variant": "#c4c5d5",
+                        "on-secondary-fixed": "#2a1700",
+                        "primary": "#00288e",
+                        "background": "#f8f9ff",
+                        "secondary-fixed-dim": "#ffb95f",
+                        "on-secondary-container": "#684000",
+                        "primary-container": "#1e40af",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "outline": "#757684",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#fea619",
+                        "surface-container": "#e5eeff",
+                        "on-primary-fixed": "#001453",
+                        "inverse-surface": "#213145",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b8c4ff",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "secondary": "#855300",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-container": "#00554e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "sidebar_width": "260px",
+                        "gutter": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="w-sidebar_width h-screen fixed left-0 top-0 border-r border-outline-variant dark:border-outline bg-surface-container-lowest dark:bg-surface-dim flex flex-col py-md z-20">
+<div class="px-md mb-xl flex items-center space-x-sm">
+<img alt="Sao Viet Logo" class="w-10 h-10 rounded-full" data-alt="A clean, minimalist logo of a star inside a shield, designed in a corporate blue and gold color scheme, suitable for a professional education center. The design is modern, scalable, and sits on a pristine white background. It conveys trust, learning, and excellence in a structured environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhrLfSENZkCTqtQ6kr7SF0iO-PlL-zbnXIAFXF3CrykB_3N8s9ESh5eKRSddw1Mdk3X4TwuracT01Qn5CYuwttlqY-4DV_tauGNuJxOxm-lhddzLHCt6xD7ZXeVWqtJIquOHmXiGZQExUjahUNOJpTyxCwoHflzVuwKOGFtAjmgrwzpLqXk6GUEfBcFAhR1X9fORgiT7GoiKrJinWBpC5FYcxSMuN0x5H9duPNkYUDIa1_gMb6U-ebvI64ibXSfiDpFit-gOOgZFE"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Sao Việt</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Content Studio</p>
+</div>
+</div>
+<ul class="flex-1 space-y-xs px-sm font-body-md text-body-md">
+<!-- Dashboard -->
+<li>
+<a class="flex items-center space-x-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+</li>
+<!-- History -->
+<li>
+<a class="flex items-center space-x-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>History</span>
+</a>
+</li>
+<!-- Media Library -->
+<li>
+<a class="flex items-center space-x-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="perm_media">perm_media</span>
+<span>Media Library</span>
+</a>
+</li>
+<!-- Prompt Generator (Active) -->
+<li>
+<a class="flex items-center space-x-md px-md py-sm rounded-lg bg-surface-container-high dark:bg-surface-container text-primary font-bold cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>Prompt Generator</span>
+</a>
+</li>
+<!-- Settings -->
+<li>
+<a class="flex items-center space-x-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-sidebar_width flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 h-16 border-b border-outline-variant dark:border-outline bg-surface dark:bg-surface-dim flex justify-between items-center px-lg z-10 shrink-0">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface-variant">
+                Content Studio
+            </div>
+<div class="flex items-center space-x-md font-label-md text-label-md text-primary dark:text-primary-fixed">
+<span class="text-on-surface-variant">Connection Status</span>
+<span class="text-on-surface-variant mx-sm">|</span>
+<span class="text-on-surface-variant">Page Selector</span>
+<div class="flex items-center space-x-md ml-lg">
+<button class="text-on-surface-variant hover:text-primary transition-opacity duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-opacity duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 overflow-y-auto bg-surface-bright p-lg">
+<div class="max-w-6xl mx-auto space-y-lg">
+<!-- Header Section -->
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-sm">AI Prompt Generator</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Configure parameters to generate high-quality content prompts.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Form Controls (7 cols) -->
+<div class="col-span-1 lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Cấu hình Nội dung</h3>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Kiểu bài viết -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Kiểu bài viết</label>
+<select class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Tuyển sinh</option>
+<option>Khai giảng</option>
+<option>Mẹo học tập</option>
+<option>Tin tức nội bộ</option>
+</select>
+</div>
+<!-- Khóa học/Chủ đề -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Khóa học/Chủ đề</label>
+<select class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Tin học Văn phòng (Excel, MOS)</option>
+<option>Thiết kế Đồ họa (Photoshop, AI)</option>
+<option>Thiết kế Kỹ thuật (AutoCAD)</option>
+<option>Lập trình Cơ bản</option>
+</select>
+</div>
+<!-- Đối tượng -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Đối tượng</label>
+<select class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Sinh viên</option>
+<option>Người đi làm</option>
+<option>Người chuyển ngành</option>
+<option>Doanh nghiệp</option>
+</select>
+</div>
+<!-- Mục tiêu -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Mục tiêu</label>
+<select class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Tư vấn / Nhắn tin (Inbox)</option>
+<option>Tăng tương tác (Like/Share/Comment)</option>
+<option>Đăng ký form</option>
+<option>Nhận diện thương hiệu</option>
+</select>
+</div>
+<!-- Giọng văn -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Giọng văn</label>
+<select class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Chuyên nghiệp &amp; Đáng tin cậy</option>
+<option>Thân thiện &amp; Gần gũi</option>
+<option>Hài hước &amp; Bắt trend</option>
+<option>Thúc giục (FOMO)</option>
+</select>
+</div>
+<!-- Hình ảnh -->
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Định dạng Hình ảnh</label>
+<select class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Banner vuông (1:1)</option>
+<option>Carousel (Nhiều ảnh)</option>
+<option>Hình dọc (Reels/Stories)</option>
+<option>Video ngang</option>
+</select>
+</div>
+<!-- Additional Notes -->
+<div class="col-span-1 md:col-span-2 space-y-xs">
+<label class="font-label-md text-label-md text-on-surface block">Yêu cầu bổ sung (Optional)</label>
+<textarea class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Ví dụ: Ưu đãi 20% cho sinh viên đăng ký trước ngày 15/10..." rows="3"></textarea>
+</div>
+<div class="col-span-1 md:col-span-2 flex justify-end mt-sm">
+<button class="bg-primary-container text-on-primary rounded-lg px-lg py-sm font-label-md text-label-md hover:bg-primary transition-colors flex items-center space-x-sm" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">magic_button</span>
+<span>Tạo Prompt</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Right Column: Output Area (5 cols) -->
+<div class="col-span-1 lg:col-span-5 flex flex-col h-full">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl flex-1 flex flex-col overflow-hidden">
+<!-- Output Header -->
+<div class="px-md py-sm border-b border-outline-variant bg-surface flex justify-between items-center shrink-0">
+<h3 class="font-label-md text-label-md text-on-surface flex items-center space-x-sm">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+<span>Kết quả Prompt</span>
+</h3>
+<div class="flex space-x-xs">
+<span class="inline-flex items-center rounded-full bg-surface-container-high px-2 py-1 font-label-sm text-label-sm text-on-surface-variant">V1.2</span>
+</div>
+</div>
+<!-- Output Content Area -->
+<div class="p-md flex-1 overflow-y-auto bg-surface-container-lowest relative">
+<div class="font-body-md text-body-md text-on-surface-variant leading-relaxed space-y-md">
+<p>Đóng vai một chuyên gia Content Marketing giáo dục tại Trung Tâm Tin Học Sao Việt.</p>
+<p>Hãy viết một bài đăng Facebook với các thông số sau:</p>
+<ul class="list-disc pl-md space-y-xs text-on-surface">
+<li><strong class="font-semibold">Mục đích:</strong> Tuyển sinh khóa học Tin học Văn phòng (Excel, MOS).</li>
+<li><strong class="font-semibold">Đối tượng mục tiêu:</strong> Sinh viên cần chứng chỉ để ra trường hoặc người mới đi làm cần cải thiện kỹ năng.</li>
+<li><strong class="font-semibold">Mục tiêu chiến dịch:</strong> Khuyến khích người đọc nhắn tin (Inbox) để nhận tư vấn miễn phí.</li>
+<li><strong class="font-semibold">Giọng văn:</strong> Chuyên nghiệp, đáng tin cậy nhưng vẫn thân thiện, dễ hiểu.</li>
+<li><strong class="font-semibold">Hình ảnh đi kèm dự kiến:</strong> Banner vuông (1:1) nhấn mạnh vào lợi ích khóa học.</li>
+</ul>
+<p>Yêu cầu cấu trúc bài viết:</p>
+<ol class="list-decimal pl-md space-y-xs">
+<li>Tiêu đề (Headline) thu hút sự chú ý ngay lập tức, đánh vào nỗi đau (pain point) của đối tượng.</li>
+<li>Nội dung chính (Body) trình bày rõ ràng 3-4 lợi ích thiết thực nhất khi tham gia khóa học tại Sao Việt.</li>
+<li>Lời kêu gọi hành động (Call to Action - CTA) rõ ràng, chỉ định người đọc inbox.</li>
+<li>Hashtags liên quan (ví dụ: #TinhocSaoViet #HocExcel #ChungchiMOS).</li>
+</ol>
+<p>Vui lòng cung cấp 2 phương án tiêu đề khác nhau để tôi lựa chọn.</p>
+</div>
+<!-- Floating Action Copy -->
+<div class="absolute bottom-md right-md">
+<button class="bg-primary text-on-primary rounded-lg px-md py-sm font-label-md text-label-md shadow-md hover:bg-primary-container transition-colors flex items-center space-x-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">content_copy</span>
+<span>Copy Prompt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

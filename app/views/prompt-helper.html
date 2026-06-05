@@ -1,0 +1,195 @@
+<div class="max-w-6xl mx-auto space-y-lg w-full">
+  <div>
+    <h2 class="font-display-lg text-display-lg text-on-surface mb-sm">AI Prompt Generator</h2>
+    <p class="font-body-md text-body-md text-on-surface-variant">Configure parameters to generate high-quality content prompts.</p>
+  </div>
+  <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md space-y-md">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-sm">
+      <div>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Thiết lập API AI</h3>
+        <p id="aiConfigStatus" class="font-body-sm text-body-sm text-on-surface-variant">Đang kiểm tra cấu hình...</p>
+      </div>
+      <div class="flex flex-wrap gap-sm">
+        <button id="saveAiConfigBtn" class="bg-primary text-on-primary rounded-lg px-md py-sm font-label-md text-label-md hover:bg-primary/90 transition-colors flex items-center gap-xs" type="button">
+          <span class="material-symbols-outlined">save</span>
+          <span>Lưu .env</span>
+        </button>
+        <button id="testAiConfigBtn" class="bg-surface-container-high text-on-surface rounded-lg px-md py-sm font-label-md text-label-md border border-outline-variant hover:bg-surface-container transition-colors flex items-center gap-xs" type="button">
+          <span class="material-symbols-outlined">bolt</span>
+          <span>Test</span>
+        </button>
+        <button id="refreshAiModelsBtn" class="bg-surface-container-high text-on-surface rounded-lg px-md py-sm font-label-md text-label-md border border-outline-variant hover:bg-surface-container transition-colors flex items-center gap-xs" type="button">
+          <span class="material-symbols-outlined">sync</span>
+          <span>Dò model</span>
+        </button>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-md">
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface block">Provider</label>
+        <select id="aiProvider" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+          <option value="gemini">Gemini</option>
+          <option value="custom">Custom Provider</option>
+        </select>
+      </div>
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface block">API Key</label>
+        <input id="aiApiKey" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Nhập key để lưu hoặc đổi key" type="password" autocomplete="off" />
+      </div>
+      <div class="space-y-xs custom-ai-field">
+        <label class="font-label-md text-label-md text-on-surface block">Base URL</label>
+        <input id="aiBaseUrl" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="https://api.example.com/v1" type="url" />
+      </div>
+      <div class="space-y-xs custom-ai-field">
+        <label class="font-label-md text-label-md text-on-surface block">Endpoint</label>
+        <select id="aiEndpointStyle" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+          <option value="openai">OpenAI-compatible</option>
+          <option value="gemini">Gemini-compatible</option>
+        </select>
+      </div>
+      <div class="space-y-xs">
+        <label class="font-label-md text-label-md text-on-surface block">Model</label>
+        <input id="aiModel" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" list="aiModelList" placeholder="Dò model hoặc nhập tay" />
+        <datalist id="aiModelList"></datalist>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <div class="col-span-1 lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+      <h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Cấu hình Nội dung</h3>
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-md">
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Kiểu bài viết</label>
+          <select id="promptTemplate" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="new-post">Bài đầy đủ: caption + ảnh</option>
+            <option value="enrollment">Tuyển sinh/chiêu sinh</option>
+            <option value="opening">Khai giảng/lịch học</option>
+            <option value="tips">Mẹo học tập/thủ thuật</option>
+            <option value="student-work">Học viên/thành quả lớp học</option>
+            <option value="promo">Ưu đãi/thông báo</option>
+            <option value="revise-caption">Sửa lại nội dung bài</option>
+            <option value="image-prompt">Chỉ tạo prompt hình ảnh</option>
+            <option value="fix-publish">Sửa lỗi trước khi đăng</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Khóa học/Chủ đề</label>
+          <select id="promptCourse" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="auto">Theo tiêu đề bài đang chọn</option>
+            <option value="Tin học văn phòng Word Excel PowerPoint">Tin học văn phòng</option>
+            <option value="Excel cơ bản đến nâng cao">Excel cơ bản đến nâng cao</option>
+            <option value="MOS 365 Word Excel PowerPoint">MOS 365</option>
+            <option value="AutoCAD SketchUp SolidWorks kỹ thuật">AutoCAD/Kỹ thuật</option>
+            <option value="Photoshop Illustrator CorelDRAW Canva CapCut">Thiết kế đồ họa</option>
+            <option value="Kế toán tổng hợp thực hành">Kế toán tổng hợp</option>
+            <option value="Tin học trẻ em Scratch tư duy công nghệ">Tin học trẻ em/Scratch</option>
+            <option value="AI ứng dụng trong công việc văn phòng">AI văn phòng</option>
+            <option value="Python VBA Excel lập trình ứng dụng">Lập trình/Python/VBA</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Đối tượng</label>
+          <select id="promptAudience" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="người mới bắt đầu, học viên cần học thực hành">Người mới bắt đầu</option>
+            <option value="sinh viên cần chứng chỉ và kỹ năng thực tế">Sinh viên</option>
+            <option value="người đi làm muốn nâng cấp kỹ năng">Người đi làm</option>
+            <option value="phụ huynh đang tìm lớp công nghệ phù hợp cho con">Phụ huynh</option>
+            <option value="học sinh cần kỹ năng máy tính và tư duy công nghệ">Học sinh</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Mục tiêu</label>
+          <select id="promptGoal" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="tư vấn đăng ký học và nhắn tin để được xếp lớp">Tư vấn đăng ký</option>
+            <option value="thông báo lịch khai giảng và mời liên hệ giữ chỗ">Thông báo khai giảng</option>
+            <option value="chia sẻ kiến thức hữu ích để tăng tương tác">Tăng tương tác</option>
+            <option value="giới thiệu lợi ích khóa học và tạo niềm tin">Giới thiệu khóa học</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Độ dài</label>
+          <select id="promptLength" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="vừa đủ, dễ đọc trên Facebook/Zalo">Vừa đủ</option>
+            <option value="ngắn gọn, dễ copy đăng nhanh">Ngắn</option>
+            <option value="chi tiết, có nhiều ý tư vấn">Chi tiết</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Giọng văn</label>
+          <select id="promptTone" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="thân thiện, rõ ràng, chuyên nghiệp">Thân thiện chuyên nghiệp</option>
+            <option value="sôi nổi, nhiều năng lượng nhưng không phóng đại">Sôi nổi</option>
+            <option value="tư vấn nhẹ nhàng, tạo tin tưởng">Tư vấn nhẹ nhàng</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Định dạng Hình ảnh</label>
+          <select id="promptImageType" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="banner vuông Facebook/Zalo 1200x1200">Banner vuông</option>
+            <option value="poster dọc 1080x1920 cho story/reels">Poster dọc</option>
+            <option value="ảnh carousel nhiều trang, mỗi trang một ý chính">Carousel</option>
+            <option value="infographic đơn giản, dễ đọc trên điện thoại">Infographic</option>
+          </select>
+        </div>
+        <div class="space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Ảnh học viên</label>
+          <select id="promptStudentPhotos" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary">
+            <option value="có thể dùng ảnh học viên thật trong album nếu phù hợp">Có thể dùng</option>
+            <option value="không dùng ảnh học viên thật, chỉ dùng ảnh AI">Không dùng</option>
+            <option value="ưu tiên ảnh lớp học/học viên thật đang có trong bộ ảnh">Ưu tiên ảnh thật</option>
+          </select>
+        </div>
+        <div class="col-span-1 md:col-span-2 space-y-xs">
+          <label class="font-label-md text-label-md text-on-surface block">Yêu cầu bổ sung (Optional)</label>
+          <textarea id="promptNotes" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Ví dụ: lớp tối 2-4-6, cần nhấn mạnh thực hành, không ghi giảm giá..." rows="3"></textarea>
+        </div>
+        <div class="col-span-1 md:col-span-2 flex justify-end mt-sm">
+          <button id="generateAiDraftBtn" class="bg-tertiary text-on-tertiary rounded-lg px-lg py-sm font-label-md text-label-md hover:bg-tertiary/90 transition-colors flex items-center space-x-sm mr-sm" type="button">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            <span>Tạo draft AI</span>
+          </button>
+          <button id="copyPromptBtn" class="bg-primary-container text-on-primary rounded-lg px-lg py-sm font-label-md text-label-md hover:bg-primary transition-colors flex items-center space-x-sm" type="button">
+            <span class="material-symbols-outlined">content_copy</span>
+            <span>Copy Prompt</span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-span-1 lg:col-span-5 flex flex-col h-full">
+      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl flex-1 flex flex-col overflow-hidden min-h-[640px]">
+        <div class="px-md py-sm border-b border-outline-variant bg-surface flex justify-between items-center shrink-0">
+          <h3 class="font-label-md text-label-md text-on-surface flex items-center space-x-sm">
+            <span class="material-symbols-outlined text-tertiary">psychology</span>
+            <span>Kết quả Prompt</span>
+          </h3>
+          <span class="inline-flex items-center rounded-full bg-surface-container-high px-2 py-1 font-label-sm text-label-sm text-on-surface-variant">V1.2</span>
+        </div>
+        <div class="p-md flex-1 overflow-y-auto bg-surface-container-lowest relative">
+          <textarea id="promptSuggestion" class="w-full h-full min-h-[560px] border-0 bg-transparent font-body-md text-body-md text-on-surface-variant leading-relaxed focus:ring-0 resize-none" readonly></textarea>
+        </div>
+      </div>
+      <div class="mt-md bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+        <div class="px-md py-sm border-b border-outline-variant bg-surface flex justify-between items-center">
+          <h3 class="font-label-md text-label-md text-on-surface flex items-center space-x-sm">
+            <span class="material-symbols-outlined text-primary">edit_note</span>
+            <span>Draft AI</span>
+          </h3>
+          <div class="flex gap-xs">
+            <button id="copyDraftBtn" class="w-9 h-9 rounded bg-surface-container-high border border-outline-variant text-on-surface flex items-center justify-center hover:bg-surface-container disabled:opacity-50" type="button" disabled title="Copy draft">
+              <span class="material-symbols-outlined text-[20px]">content_copy</span>
+            </button>
+            <button id="applyDraftBtn" class="w-9 h-9 rounded bg-primary text-on-primary flex items-center justify-center hover:bg-primary/90 disabled:opacity-50" type="button" disabled title="Áp dụng vào bài đang chọn">
+              <span class="material-symbols-outlined text-[20px]">check</span>
+            </button>
+          </div>
+        </div>
+        <div class="p-md space-y-sm">
+          <input id="aiDraftTitle" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Tiêu đề AI" readonly />
+          <textarea id="aiDraftCaption" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Caption AI" rows="7" readonly></textarea>
+          <textarea id="aiDraftImagePrompt" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Prompt hình ảnh AI" rows="5" readonly></textarea>
+          <input id="aiDraftHashtags" class="w-full font-body-md text-body-md border-outline-variant rounded-DEFAULT focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Hashtag" readonly />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

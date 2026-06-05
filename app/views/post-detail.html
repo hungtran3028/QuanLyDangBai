@@ -1,0 +1,100 @@
+<div class="max-w-6xl mx-auto w-full flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden min-h-[calc(100vh-96px)]">
+  <div class="p-md border-b border-outline-variant bg-surface-container-low shrink-0 flex justify-between items-center">
+    <div>
+      <p id="detailStatus" class="font-label-sm text-label-sm text-primary uppercase">Chưa chọn bài</p>
+      <h2 id="detailTitle" class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Chọn một bài để xem chi tiết</h2>
+    </div>
+    <span id="detailSlug" class="font-label-sm text-label-sm bg-surface-container-lowest px-sm py-xs rounded border border-outline-variant text-on-surface-variant"></span>
+  </div>
+
+  <div id="emptyDetail" class="flex-1 grid place-items-center p-lg text-on-surface-variant border border-dashed border-outline-variant m-md rounded">
+    Chọn một bài trong Dashboard để xem chi tiết.
+  </div>
+
+  <div id="postDetail" class="flex-1 min-h-0 flex flex-col" hidden>
+    <div class="flex-1 overflow-y-auto p-md flex flex-col gap-lg">
+      <section>
+        <div class="flex justify-between items-center mb-sm">
+          <h3 id="mediaCount" class="font-label-md text-label-md text-on-surface-variant uppercase">Media (0)</h3>
+          <a class="text-primary font-label-md text-label-md flex items-center gap-xs hover:underline" href="#/media">
+            <span class="material-symbols-outlined text-[16px]">add_photo_alternate</span>
+            Thêm từ thư viện học viên
+          </a>
+        </div>
+        <div id="mediaGrid" class="grid grid-cols-4 gap-sm"></div>
+      </section>
+
+      <hr class="border-outline-variant" />
+
+      <section>
+        <div class="flex justify-between items-center mb-sm">
+          <h3 class="font-label-md text-label-md text-on-surface-variant uppercase">Nội dung bài viết</h3>
+          <button id="copyBtn" class="px-sm py-xs rounded bg-surface-container border border-outline-variant text-on-surface font-label-sm text-label-sm flex items-center gap-xs hover:bg-surface-container-high transition-colors" type="button">
+            <span class="material-symbols-outlined text-[16px]">content_copy</span>
+            Copy Caption
+          </button>
+        </div>
+        <div class="grid grid-cols-1 gap-sm">
+          <div>
+            <label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Tiêu đề (Internal)</label>
+            <input id="titleEditor" class="w-full px-sm py-sm text-body-md bg-surface-container-lowest border border-outline-variant rounded focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" type="text" />
+          </div>
+          <div>
+            <label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Caption FB/Zalo</label>
+            <textarea id="captionEditor" class="w-full px-sm py-sm text-body-md bg-surface-container-lowest border border-outline-variant rounded focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all resize-y font-body-sm" rows="12"></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button id="saveContentBtn" class="px-md py-sm rounded bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">Lưu thay đổi</button>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-outline-variant" />
+
+      <section>
+        <h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-sm">Kiểm tra Metadata</h3>
+        <div id="checksList" class="bg-surface-container-lowest border border-outline-variant rounded p-sm flex flex-col gap-xs"></div>
+      </section>
+
+      <section>
+        <div class="flex flex-wrap gap-xs">
+          <span id="scheduledAt" class="font-label-sm text-label-sm bg-surface-container-high px-sm py-xs rounded text-on-surface-variant"></span>
+          <span id="publishedAt" class="font-label-sm text-label-sm bg-surface-container-high px-sm py-xs rounded text-on-surface-variant"></span>
+          <span id="facebookPostId" class="font-label-sm text-label-sm bg-surface-container-high px-sm py-xs rounded text-on-surface-variant"></span>
+        </div>
+        <div id="publishError" class="mt-sm rounded bg-error-container text-error p-sm" hidden></div>
+      </section>
+
+      <section id="historySection" hidden>
+        <h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-sm">Lịch sử</h3>
+        <ul id="publishHistory" class="flex flex-col gap-sm"></ul>
+      </section>
+    </div>
+
+    <div class="p-md border-t border-outline-variant bg-surface-container-lowest shrink-0 flex justify-between items-center gap-sm">
+      <button id="retryBtn" class="px-md py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-xs" type="button">
+        <span class="material-symbols-outlined text-[18px]">history</span>
+        Đăng lại
+      </button>
+      <form id="scheduleForm" class="flex items-end gap-sm">
+        <label class="font-label-sm text-label-sm text-on-surface-variant">
+          Hẹn giờ
+          <input id="scheduleAt" class="block mt-xs px-sm py-xs text-body-sm bg-surface-container-lowest border border-outline-variant rounded" type="datetime-local" />
+        </label>
+        <button class="px-md py-sm rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-xs" type="submit">
+          <span class="material-symbols-outlined text-[18px]">schedule</span>
+          Lưu lịch
+        </button>
+      </form>
+      <div class="flex gap-sm">
+        <button id="metadataBtn" class="px-md py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Tạo metadata</button>
+        <button id="approveBtn" class="px-md py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Duyệt bài</button>
+        <button id="publishBtn" class="px-md py-sm rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-xs" type="button">
+          <span class="material-symbols-outlined text-[18px]">send</span>
+          Đăng ngay
+        </button>
+        <button id="publishAgainBtn" class="px-md py-sm rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:opacity-90 transition-opacity" type="button">Đăng sang Page đang chọn</button>
+      </div>
+    </div>
+  </div>
+</div>
