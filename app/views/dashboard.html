@@ -1,45 +1,45 @@
-<div class="grid grid-cols-4 gap-gutter shrink-0">
-  <button class="summary-card bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center gap-md text-left" type="button" data-status-filter="blockers">
-    <div class="w-10 h-10 rounded bg-error-container text-error flex items-center justify-center">
+<div class="dashboard-summary shrink-0">
+  <button class="summary-card p-md flex items-center gap-md text-left" type="button" data-status-filter="blockers">
+    <div class="summary-icon bg-error-container text-error flex items-center justify-center">
       <span class="material-symbols-outlined">warning</span>
     </div>
     <div>
-      <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Cần xử lý</div>
+      <div class="section-title font-label-sm text-label-sm">Cần xử lý</div>
       <div id="summaryBlockers" class="font-headline-sm text-headline-sm text-on-surface">0</div>
     </div>
   </button>
-  <button class="summary-card bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center gap-md text-left" type="button" data-status-filter="approved">
-    <div class="w-10 h-10 rounded bg-tertiary-fixed text-tertiary flex items-center justify-center">
+  <button class="summary-card p-md flex items-center gap-md text-left" type="button" data-status-filter="approved">
+    <div class="summary-icon bg-tertiary-fixed text-tertiary flex items-center justify-center">
       <span class="material-symbols-outlined">check_circle</span>
     </div>
     <div>
-      <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Sẵn sàng đăng</div>
+      <div class="section-title font-label-sm text-label-sm">Sẵn sàng đăng</div>
       <div id="summaryReady" class="font-headline-sm text-headline-sm text-on-surface">0</div>
     </div>
   </button>
-  <button class="summary-card bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center gap-md text-left" type="button" data-status-filter="scheduled">
-    <div class="w-10 h-10 rounded bg-secondary-fixed text-secondary flex items-center justify-center">
+  <button class="summary-card p-md flex items-center gap-md text-left" type="button" data-status-filter="scheduled">
+    <div class="summary-icon bg-secondary-fixed text-secondary flex items-center justify-center">
       <span class="material-symbols-outlined">schedule</span>
     </div>
     <div>
-      <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Đã hẹn giờ</div>
+      <div class="section-title font-label-sm text-label-sm">Đã hẹn giờ</div>
       <div id="summaryScheduled" class="font-headline-sm text-headline-sm text-on-surface">0</div>
     </div>
   </button>
-  <button class="summary-card bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex items-center gap-md text-left" type="button" data-status-filter="published">
-    <div class="w-10 h-10 rounded bg-primary-container text-on-primary-container flex items-center justify-center">
+  <button class="summary-card p-md flex items-center gap-md text-left" type="button" data-status-filter="published">
+    <div class="summary-icon bg-primary-container text-on-primary-container flex items-center justify-center">
       <span class="material-symbols-outlined">publish</span>
     </div>
     <div>
-      <div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Đã đăng</div>
+      <div class="section-title font-label-sm text-label-sm">Đã đăng</div>
       <div id="summaryPublished" class="font-headline-sm text-headline-sm text-on-surface">0</div>
     </div>
   </button>
 </div>
 
-<div class="flex-1 flex gap-gutter min-h-0">
-  <div class="w-2/5 flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-    <div class="p-sm border-b border-outline-variant bg-surface-container-low shrink-0">
+<div class="dashboard-workspace flex-1">
+  <div class="queue-panel flex flex-col min-h-0">
+    <div class="panel-header p-sm border-b border-outline-variant shrink-0">
       <div class="relative mb-sm">
         <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
         <input id="postSearch" class="w-full pl-8 pr-sm py-sm text-body-sm bg-surface-container-lowest border border-outline-variant rounded focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" placeholder="Tìm kiếm bài viết..." type="text" />
@@ -55,22 +55,22 @@
       </div>
     </div>
     <div id="postList" class="flex-1 overflow-y-auto p-sm flex flex-col gap-sm"></div>
-    <div class="p-sm border-t border-outline-variant bg-surface-container-low">
-      <h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-sm">Lịch gần nhất</h3>
+    <div class="panel-header p-sm border-t border-outline-variant">
+      <h3 class="section-title font-label-md text-label-md mb-sm">Lịch gần nhất</h3>
       <div id="scheduleList" class="flex flex-col gap-sm"></div>
     </div>
   </div>
 
-  <div class="w-3/5 flex flex-col bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden relative">
-    <div class="p-md border-b border-outline-variant bg-surface-container-low shrink-0 flex justify-between items-center">
+  <div class="detail-panel flex flex-col min-h-0 relative">
+    <div class="panel-header p-md border-b border-outline-variant shrink-0 flex justify-between items-center gap-md">
       <div>
-        <p id="detailStatus" class="font-label-sm text-label-sm text-primary uppercase">Chưa chọn bài</p>
+        <p id="detailStatus" class="section-title font-label-sm text-label-sm text-primary">Chưa chọn bài</p>
         <h2 id="detailTitle" class="font-headline-sm text-headline-sm text-on-surface line-clamp-1">Chọn một bài để xem chi tiết</h2>
       </div>
       <span id="detailSlug" class="font-label-sm text-label-sm bg-surface-container-lowest px-sm py-xs rounded border border-outline-variant text-on-surface-variant"></span>
     </div>
 
-    <div id="emptyDetail" class="flex-1 grid place-items-center p-md text-on-surface-variant border border-dashed border-outline-variant m-md rounded">
+    <div id="emptyDetail" class="empty-state flex-1 grid place-items-center p-md text-on-surface-variant border border-dashed border-outline-variant m-md rounded">
       Các bài trong `outputs/bai-viet/` sẽ xuất hiện ở danh sách bên trái.
     </div>
 
@@ -78,7 +78,7 @@
       <div class="flex-1 overflow-y-auto p-md flex flex-col gap-lg">
         <section>
           <div class="flex justify-between items-center mb-sm">
-            <h3 id="mediaCount" class="font-label-md text-label-md text-on-surface-variant uppercase">Media (0)</h3>
+            <h3 id="mediaCount" class="section-title font-label-md text-label-md">Media (0)</h3>
             <a class="text-primary font-label-md text-label-md flex items-center gap-xs hover:underline" href="#/media">
               <span class="material-symbols-outlined text-[16px]">add_photo_alternate</span>
               Thêm từ thư viện học viên
@@ -93,15 +93,15 @@
           <div class="flex justify-between items-center mb-sm">
             <h3 class="font-label-md text-label-md text-on-surface-variant uppercase">Nội dung bài viết</h3>
             <div class="flex gap-sm">
-              <button id="copyBtn" class="px-sm py-xs rounded bg-surface-container border border-outline-variant text-on-surface font-label-sm text-label-sm flex items-center gap-xs hover:bg-surface-container-high transition-colors" type="button">
+              <button id="copyBtn" class="btn-quiet px-sm py-xs font-label-sm text-label-sm" type="button">
                 <span class="material-symbols-outlined text-[16px]">content_copy</span>
-                Copy Caption
+                Sao chép caption
               </button>
             </div>
           </div>
           <div class="flex flex-col gap-sm">
             <div>
-              <label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Tiêu đề (Internal)</label>
+              <label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs">Tiêu đề nội bộ</label>
               <input id="titleEditor" class="w-full px-sm py-sm text-body-md bg-surface-container-lowest border border-outline-variant rounded focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all" type="text" />
             </div>
             <div>
@@ -117,7 +117,7 @@
         <hr class="border-outline-variant" />
 
         <section>
-          <h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-sm">Kiểm tra Metadata</h3>
+          <h3 class="section-title font-label-md text-label-md mb-sm">Kiểm tra metadata</h3>
           <div id="checksList" class="bg-surface-container-lowest border border-outline-variant rounded p-sm flex flex-col gap-xs"></div>
         </section>
 
@@ -136,31 +136,30 @@
         </section>
       </div>
 
-      <div class="p-md border-t border-outline-variant bg-surface-container-lowest shrink-0 flex justify-between items-center gap-sm">
-        <button id="retryBtn" class="px-md py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center gap-xs" type="button">
+      <div class="action-bar p-md border-t border-outline-variant shrink-0 flex justify-between items-center">
+        <button id="retryBtn" class="btn-danger px-md py-sm font-label-md text-label-md" type="button">
           <span class="material-symbols-outlined text-[18px]">history</span>
           Đăng lại
         </button>
-        <form id="scheduleForm" class="flex items-end gap-sm">
+        <form id="scheduleForm" class="schedule-form flex items-end gap-sm">
           <label class="font-label-sm text-label-sm text-on-surface-variant">
             Hẹn giờ
             <input id="scheduleAt" class="block mt-xs px-sm py-xs text-body-sm bg-surface-container-lowest border border-outline-variant rounded" type="datetime-local" />
           </label>
-          <button class="px-md py-sm rounded bg-secondary-container text-on-secondary-container font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-xs" type="submit">
+          <button class="btn-secondary px-md py-sm font-label-md text-label-md" type="submit">
             <span class="material-symbols-outlined text-[18px]">schedule</span>
             Lưu lịch
           </button>
         </form>
-        <div class="flex gap-sm">
-          <button id="metadataBtn" class="px-md py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Tạo metadata</button>
-          <button id="approveBtn" class="px-md py-sm rounded bg-surface-container-lowest border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">Duyệt bài</button>
-          <button id="publishBtn" class="px-md py-sm rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center gap-xs" type="button">
+        <div class="action-group">
+          <button id="metadataBtn" class="btn-quiet px-md py-sm font-label-md text-label-md" type="button">Tạo metadata</button>
+          <button id="approveBtn" class="btn-secondary px-md py-sm font-label-md text-label-md" type="button">Duyệt bài</button>
+          <button id="publishBtn" class="btn-primary px-md py-sm font-label-md text-label-md" type="button">
             <span class="material-symbols-outlined text-[18px]">send</span>
             Đăng ngay
           </button>
-          <button id="publishAgainBtn" class="px-md py-sm rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:opacity-90 transition-opacity" type="button">Đăng sang Page đang chọn</button>
+          <button id="publishAgainBtn" class="btn-primary px-md py-sm font-label-md text-label-md" type="button">Đăng sang Page</button>
         </div>
-      </div>
     </div>
   </div>
 </div>

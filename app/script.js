@@ -11,12 +11,12 @@ const statusLabels = {
 };
 
 const viewTitles = {
-  dashboard: "Dashboard",
-  detail: "Post Detail",
-  history: "History",
-  media: "Media Library",
-  prompt: "Prompt Generator",
-  facebook: "Content Studio",
+  dashboard: "Tổng quan vận hành",
+  detail: "Chi tiết bài viết",
+  history: "Lịch sử đăng",
+  media: "Thư viện ảnh",
+  prompt: "Gợi ý nội dung AI",
+  facebook: "Facebook Page",
 };
 
 const viewFiles = {
@@ -460,7 +460,7 @@ function renderTopFacebook() {
   const status = facebookStatus || {};
   const connectionStatus = document.getElementById("connectionStatus");
   if (connectionStatus) {
-    const label = status.connected ? (status.selected_page_name || status.page_name || "Đã kết nối") : "Connection Status";
+    const label = status.connected ? (status.selected_page_name || status.page_name || "Đã kết nối") : "Chưa kết nối Page";
     connectionStatus.querySelector("span:last-child").textContent = label;
   }
   renderPageOptions(status.pages || [], topPageSelect);
@@ -492,7 +492,7 @@ function renderPageOptions(pages, select) {
   select.disabled = pages.length === 0;
   if (pages.length === 0) {
     const option = document.createElement("option");
-    option.textContent = "Page Selector";
+    option.textContent = "Chọn fanpage";
     select.appendChild(option);
     return;
   }

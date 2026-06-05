@@ -87,12 +87,12 @@
               fontSize: {
                 "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
                 "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
-                "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                "display-lg": ["32px", { lineHeight: "40px", letterSpacing: "0", fontWeight: "700" }],
                 "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
                 "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
                 "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
                 "label-sm": ["11px", { lineHeight: "14px", fontWeight: "500" }],
-                "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "0", fontWeight: "600" }],
               },
             },
           },
@@ -108,63 +108,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="font-body-md text-body-md text-on-surface bg-background antialiased flex h-screen overflow-hidden">
-    <nav class="w-sidebar_width h-screen fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-md z-20">
+  <body class="app-body font-body-md text-body-md text-on-surface bg-background antialiased flex h-screen overflow-hidden">
+    <nav class="app-sidebar w-sidebar_width h-screen fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-md z-20">
       <div class="px-md mb-lg flex items-center gap-sm">
-        <div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary">
-          <span class="material-symbols-outlined text-[20px] icon-fill">star</span>
+        <div class="brand-mark">
+          <img src="/assets/brand/logo-primary.png" alt="Logo Sao Việt" />
         </div>
         <div>
           <h1 class="font-headline-md text-headline-md font-bold text-primary">Sao Việt</h1>
-          <p class="font-label-md text-label-md text-on-surface-variant">Content Studio</p>
+          <p class="font-label-md text-label-md text-on-surface-variant">Xưởng nội dung</p>
         </div>
       </div>
 
       <div class="flex-1 px-sm flex flex-col gap-xs">
         <a class="nav-link" data-view="dashboard" href="#/dashboard">
           <span class="material-symbols-outlined">dashboard</span>
-          <span>Dashboard</span>
+          <span>Tổng quan</span>
         </a>
         <a class="nav-link" data-view="detail" href="#/detail">
           <span class="material-symbols-outlined">article</span>
-          <span>Post Detail</span>
+          <span>Chi tiết bài</span>
         </a>
         <a class="nav-link" data-view="history" href="#/history">
           <span class="material-symbols-outlined">history</span>
-          <span>History</span>
+          <span>Lịch sử đăng</span>
         </a>
         <a class="nav-link" data-view="media" href="#/media">
           <span class="material-symbols-outlined">perm_media</span>
-          <span>Media Library</span>
+          <span>Thư viện ảnh</span>
         </a>
         <a class="nav-link" data-view="prompt" href="#/prompt">
           <span class="material-symbols-outlined">psychology</span>
-          <span>Prompt Generator</span>
+          <span>Gợi ý AI</span>
         </a>
         <a class="nav-link" data-view="facebook" href="#/facebook">
           <span class="material-symbols-outlined">settings</span>
-          <span>Settings</span>
+          <span>Facebook Page</span>
         </a>
       </div>
     </nav>
 
     <div class="flex-1 ml-sidebar_width flex flex-col h-screen w-[calc(100%-260px)] relative">
-      <header class="bg-surface docked full-width top-0 h-16 border-b border-outline-variant flex justify-between items-center px-lg z-10">
+      <header class="app-header bg-surface docked full-width top-0 h-16 border-b border-outline-variant flex justify-between items-center px-lg z-10">
         <div id="viewTitle" class="font-headline-sm text-headline-sm font-semibold text-on-surface">Dashboard</div>
-        <div class="flex items-center space-x-md text-on-surface-variant">
-          <button id="connectionStatus" class="hover:text-primary transition-opacity duration-150 flex items-center gap-sm" type="button">
+        <div class="top-actions flex items-center space-x-md text-on-surface-variant">
+          <button id="connectionStatus" class="connection-pill hover:text-primary transition-opacity duration-150 flex items-center gap-sm" type="button">
             <span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
-            <span class="font-label-sm text-label-sm">Connection Status</span>
+            <span class="font-label-sm text-label-sm">Trạng thái kết nối</span>
           </button>
           <div class="w-px h-6 bg-outline-variant"></div>
           <button id="refreshBtn" class="hover:text-primary transition-opacity duration-150 cursor-pointer flex items-center" type="button" title="Tải lại">
             <span class="material-symbols-outlined">refresh</span>
           </button>
-          <button class="hover:text-primary transition-opacity duration-150 cursor-pointer flex items-center" type="button">
-            <span class="material-symbols-outlined">account_circle</span>
-          </button>
           <select id="topPageSelect" class="font-label-sm text-label-sm bg-surface-container-low px-sm py-xs rounded border border-outline-variant ml-sm max-w-[260px]" disabled>
-            <option>Page Selector</option>
+            <option>Chọn fanpage</option>
           </select>
         </div>
       </header>
